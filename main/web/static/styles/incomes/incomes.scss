@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
+
+textarea{
+    background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+    resize: vertical;
+}
+
+select{
+    background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+    width: 100%;
+}
+
+.income{
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    padding: 12px;
+    margin-bottom: 24px;
+    max-width: 700px;
+    min-height: 30px;
+    align-items: center;
+}
+
+.income:hover{
+    transform: scale(1.05);
+    box-shadow: 6px 10px 54px 3px rgba(0, 144, 255, 0.2);
+    border-radius: 10px;
+}
+
+.income-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.income-date{
+    color: #a1acb8;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.income-category{
+    color: #566a7f;
+    font-weight: bold;
+}
+  
+.income-avatar img{
+    width: 38px;
+    height: 38px;
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.income-edit{
+    cursor: pointer;
+}
+
+.income-edit img{
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+}
+
+.income-delete{
+    cursor: pointer;
+}
+
+.income-delete img{
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+}
+
+.income-comment{
+    color: #566a7f;
+    word-wrap: break-word;
+}
+
+.income-amount-container{
+    text-align: right;
+}
+
+.income-amount{
+    color: #566a7f;
+    font-weight: bold;
+}
+
+.incomes{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 30px 30px 30px;
+    background-clip: padding-box;
+    box-shadow: 10px 10px 10px 10px rgb(67 89 113 / 12%);
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0.5px solid #d9dee3;
+    border-radius: 5px;
+}
+
+.incomes-column{
+    display: flex;
+    flex-direction: column;
+
+    font-size: 14px;
+}
+
+.incomes-comment{
+    word-wrap: break-word; 
+    max-width: 125px;
+}
+
+.incomes-column-title{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.add-new-income-btn, .add-income-submit{
+	border-radius: 20px;
+	border: 1px solid #3366cc;
+	background-color: #3366cc;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+.add-new-income-btn:hover, .add-income-submit:hover{
+    cursor: pointer;
+}
+
+.add-income-submit{
+    width: 100%;
+}
+
+.incomes-overlay {
+   
+    /* Скрываем подложку  */
+    opacity: 0;
+    visibility: hidden;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 20;
+    transition: .3s all;
+ }
+
+.incomes-modal{
+     /* Скрываем окна  */
+   opacity: 0;
+   visibility: hidden;
+   
+   
+   /*  Установаем ширину окна  */
+   width: 100%;
+   max-width: 500px;
+   
+   /*  Центрируем и задаем z-index */
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 30; /* Должен быть выше чем у подложки*/
+   
+   /*  Побочные стили   */
+   box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2); 
+   text-align: center;
+   padding: 30px;
+   border-radius: 3px;
+   background-color: #fff;
+   transition: 0.3s all;
+}
+
+.incomes-modal.active,
+.incomes-overlay.active{
+   opacity: 1;
+   visibility: visible;
+}
+
+/* Стили для кнопки закрытия */
+
+.modal__cross {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    fill: #444;
+    cursor: pointer;
+ }

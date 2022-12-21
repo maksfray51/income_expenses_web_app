@@ -1,0 +1,9 @@
+.pie-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.expenses-canvas, .incomes-canvas {
+  margin-bottom: 45px;
+}/*# sourceMappingURL=dashboard.css.map */

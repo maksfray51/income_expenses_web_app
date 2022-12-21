@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zolotishko</title>
+
+    <link rel="stylesheet" href="//cdn.webix.com/materialdesignicons/5.8.95/css/materialdesignicons.min.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index/index.css')}}">
+    
+</head>
+    <div class="header-title">
+        <h2>Zolotishko</h2>
+		<h2>Zolotishko</h2>
+    </div>
+    <!-- <h2>Думаешь, пора взяться за своё золото?</h2> -->
+    <div class="container" id="container">
+
+        <div class="form-container sign-up-container">
+            <form class="sign-up-form" method="post">
+                <h1 class="sign-up-form-title">Давай к нам в банду Скрудж Макдаков</h1>
+                {{register_form.login}}
+                {{register_form.email}}
+                {{register_form.pas}}
+                {{register_form.first_name}}
+                {{register_form.last_name}}
+                {{register_form.phone}}
+                {% if sign_up_err %}
+                    <div class="error" style="margin-top: 15px;color: #FF416C;">{{sign_up_err}}</div>
+                {% endif %}
+                {{register_form.submit_sign_up(class_="sign-up-btn")}}
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form class="sign-up-form" method="post">
+                <h1>Вход</h1>
+                {{login_form.login}}
+                {{login_form.pas}}
+                {% if login_err %}
+                    <div class="error" style="margin-top: 15px;color: #FF416C;">{{login_err}}</div>
+                {% endif %}
+                {{login_form.submit_login(class_="sign-in-btn")}}         
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Приветули!</h1>
+                    <p>Чтобы посмотреть на свои красивые дашбордики, нужно войти в систему</p>
+                    <button class="ghost" id="signIn">Вход</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Здарова, будущий миллионер!</h1>
+                    <p>Ты же хочешь скоро им быть? Тогда давай вводи быстрее свои данные и погнали!</p>
+                    <button class="ghost" id="signUp">Регистрация</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+<script type="text/javascript" src="js/index.js"></script>
+
+</html>

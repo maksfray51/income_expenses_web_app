@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block styles %} 
+    <link type="text/css" href="{{ url_for('static', filename='styles/investments/investments.css')}}" rel="stylesheet" />
+{% endblock styles %}
+
+{% block btn %}  <li class="navbar-list-item"><a href="#" class="add-new-investment-btn js-open-modal">Add investment</a></li>{% endblock btn %}
+{% block content %}
+
+    {% if paid_user is false%}
+        <h2> К сожаленю, мы тоже хотим быть скруджами, а для этого, нам нужны денежки... Заплати, потом проси! :)</h2>
+
+    {% elif investments and user %}
+        <div class="investments-modal">
+            <h2 class="investments-modal-title">Внесисите инвестицию</h2>
+            <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 
+                9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
+            </svg>
+            <form class="add-investment-form"  method="post">
+                {{ add_investment_form.date(class_="modal_date")}}
+                {{ add_investment_form.amount(class_="modal_amount")}}
+                {{ add_investment_form.comment(class_="modal_comment")}}
+                {{ add_investment_form.subcategory(class_="modal_subcategory")}}
+                {{ add_investment_form.submit(class_="add-investment-submit")}}
+            </form>
+        </div>
+        <div class="investments-overlay js-overlay-modal"></div>
+
+        {% for investment in investments %}
+            <div class="investment">
+                <div class="investment-avatar"><img src="images/wallet-info.png" alt="wallet"></div>
+                <div class="investment-container">
+                    <div class="investment-date-container">
+                        <div class="investment-date">{{investment[1]}}</div>
+                        <div class="investment-category">{{investment[0]}}</div>
+                    </div>
+
+                    <div class="investment-amount-container">
+                        <div class="investment-comment">{{investment[3]}}</div>
+                        <div class="investment-amount">{{investment[2]}}</div>
+                    </div>
+                </div>
+                <div class="investment-edit"><img src="images/editing.png" alt="edit"></div>
+                <div class="investment-delete"><img src="images/delete.png" alt="delete"></div>
+            </div>
+        {% endfor %}
+
+    {% endif %}
+{% endblock content %}
+
+{% block scripts %} 
+    <script type="text/javascript" src="js/investments.js"></script>
+{% endblock scripts %}

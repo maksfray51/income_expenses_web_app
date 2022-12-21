@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block styles %} 
+    <link type="text/css" href="{{ url_for('static', filename='styles/dashboard/dashboard.css')}}" rel="stylesheet" />
+    <!-- <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js" type="text/javascript"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+{% endblock styles %}
+
+{% block content %}
+    <div class="incomes">
+        {% for income in incomes %}
+            <div class="income" data-category="{{income[0]}}" data-sum="{{income[1]}}"></div>
+        {% endfor %}
+    </div>
+
+    <div class="expenses">
+        {% for expense in expenses %}
+            <div class="expense" data-category="{{expense[0]}}" data-sum="{{expense[1]}}"></div>
+        {% endfor %}
+    </div>
+
+    <div class="expenses-to-dates">
+        {% for expense_to_date in expenses_to_dates %}
+            <div class="expense-to-date" data-month="{{expense_to_date[0]}}" data-sum="{{expense_to_date[1]}}"></div>
+        {% endfor %}
+    </div>
+
+    <div class="incomes-to-dates">
+        {% for income_to_dates in incomes_to_dates %}
+            <div class="incomes-to-date" data-month="{{income_to_dates[0]}}" data-sum="{{income_to_dates[1]}}"></div>
+        {% endfor %}
+    </div>
+
+    <div class="expenses-canvas">
+        <canvas id="expenses-to-dates-container"></canvas>
+    </div>
+
+    <div class="incomes-canvas">
+        <canvas id="incomes-to-dates-container"></canvas>
+    </div>
+
+    <div class="pie-container">
+        <div>
+            <canvas id="expenses-container"></canvas>
+        </div>
+    
+        <div>
+            <canvas id="incomes-container"></canvas>
+        </div>
+    </div>
+
+
+{% endblock content %}
+
+{% block scripts %} 
+    <script src="{{ url_for('static', filename='js/dashboard.js')}}" type="text/javascript"></script>
+{% endblock scripts %}
+

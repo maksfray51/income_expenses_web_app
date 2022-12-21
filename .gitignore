@@ -1,0 +1,9 @@
+node_modules
+database
+config.py
+__pycache__
+.vscode
+venv
+package-lock.json
+package.json
+main/web/static/images
